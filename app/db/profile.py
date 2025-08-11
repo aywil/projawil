@@ -13,4 +13,8 @@ class Profile(UserRelationMixin, Base):
     last_name: Mapped[str | None] = mapped_column(String(40))
     bio: Mapped[str | None]
 
+
+class User(Base):
+    clipped: Mapped[str | None] = mapped_column(String(20))
+
     # user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), unique=True)
