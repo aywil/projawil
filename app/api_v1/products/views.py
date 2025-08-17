@@ -1,7 +1,6 @@
 from fastapi import APIRouter, HTTPException, status, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 from starlette.status import HTTP_201_CREATED
-from watchfiles import awatch
 from .dependencies import product_by_id
 from . import crud
 from .schemas import Product, ProductCreate, ProductUpdate, ProductUpdatePartial

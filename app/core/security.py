@@ -28,8 +28,7 @@ def create_jwt_token(data: dict, expires_delta: timedelta, token_type: str):
     to_encode = data.copy()
     to_encode["type"] = token_type
     expire = datetime.now() + expires_delta
-
-    to_encode.update({"exp": int(expire.timestamp())})
+    to_encode["exp"] = int(expire.timestamp())
 
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 

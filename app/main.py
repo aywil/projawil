@@ -169,7 +169,7 @@ async def protected_resource(token: str = Depends(oauth2_scheme)):
 
 @app.post("/register/", tags=["Registration"])
 @limiter.limit("1/minute")
-async def register(new_user: User, request: Request):
+async def register(new_user: UserLogin, request: Request):
     user = get_user(new_user.username)
     if user:
         raise HTTPException(

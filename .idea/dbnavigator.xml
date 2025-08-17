@@ -5,7 +5,7 @@
     <preferences />
   </component>
   <component name="DBNavigator.Project.DataEditorManager">
-    <record-view-column-sorting-type value="BY_INDEX" />
+    <record-view-column-sorting-type value="ALPHABETICAL" />
     <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
@@ -54,7 +54,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="67a488d2-84c0-428c-af6e-d14f4947ab96">
-      <console name="Database" type="STANDARD" schema="main" session="Main"><![CDATA[SELECT * FROM users]]></console>
+      <console name="Database" type="STANDARD" schema="main" session="Main"><![CDATA[select * from order_product_association]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
