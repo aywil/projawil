@@ -112,7 +112,9 @@ async def refresh_token(payload: TokenRefreshRequest, request: Request):
         del r_tokens[username]
 
         new_access = create_jwt_token(
-            {"sub": username}, timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES), "access"
+            {"sub": username},
+            timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES),
+            "access",
         )
         new_refresh = create_jwt_token(
             {"sub": username},

@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, ConfigDict
 from sqlalchemy.orm import DeclarativeBase, mapped_column, Mapped, declared_attr
 
 
@@ -31,3 +31,12 @@ class UserLogin(BaseModel):
 
 class TokenRefreshRequest(BaseModel):
     refresh_token: str
+
+
+class UserSchema(BaseModel):
+    model_config = ConfigDict(strict=True)
+
+    username: str
+    password: bytes
+    email: EmailStr | None = None
+    active: bool = True

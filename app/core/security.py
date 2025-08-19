@@ -5,7 +5,10 @@ from fastapi.security import OAuth2PasswordBearer
 from app.core.config import SECRET_KEY, ALGORITHM
 from passlib.context import CryptContext
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
+# oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
+oauth2_scheme = OAuth2PasswordBearer(
+    tokenUrl="/api/v1/demo-auth/jwt/login/",
+)
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 ROLE_PERMISSIONS = {
