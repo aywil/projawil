@@ -22,6 +22,7 @@ class AuthJWT(BaseModel):
     algorithm: str = "RS256"
     # access_token_exp_minutes: int = 3
     access_token_exp_minutes: int = 15
+    refresh_token_exp_days: int = 30
 
 
 class Settings(BaseSettings):

@@ -9,16 +9,19 @@ def encode_jwt(
     payload: dict,
     private_key: str = settings.auth_jwt.private_key_path.read_text(),
     algorithm: str = settings.auth_jwt.algorithm,
-    expire_minutes: int = settings.auth_jwt.access_token_exp_minutes,
+    access_expire_minutes: int = settings.auth_jwt.access_token_exp_minutes,
+    refresh_expire_days: int = settings.auth_jwt.refresh_token_exp_days,
     expire_timedelta: timedelta | None = None,
 ):
     to_encode = payload.copy()
-
     now = datetime.utcnow()
     if expire_timedelta:
         expire = now + expire_timedelta
     else:
-        expire = now + timedelta(minutes=expire_minutes)
+        if payload.get("type") == "access":
+            expire = now + timedelta(minutes=access_expire_minutes)
+        else:
+            expire = now + timedelta(days=refresh_expire_days)
 
     to_encode.update(
         exp=expire,
